@@ -59,7 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
           <!-- Header -->
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 32px;">
             <div style="font-size: 20px; font-weight: 800; color: #ffffff;">
-              19<span style="color: #60a5fa;">Wires</span>
+              19<span style="color: #60a5fa;">WIRES</span>
             </div>
           </div>
 
