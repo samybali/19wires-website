@@ -1,0 +1,33 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-800 py-12">
+  <div
+    class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4"
+  >
+    <a href="/" class="flex items-center gap-2">
+      <img src="/favicon.svg" alt="Logo" class="w-7 h-7 rounded-lg" />
+      <span class="font-bold text-white">
+        19<span class="text-blue-400">Wires</span>
+      </span>
+    </a>
+
+    <p class="text-zinc-600 text-sm text-center">
+      © {year} 19Wires. Tous droits réservés.
+    </p>
+
+    <div class="flex items-center gap-6">
+      {
+        ["Mentions légales", "Confidentialité", "CGV"].map((link) => (
+          <a
+            href="#"
+            class="text-xs text-zinc-600 hover:text-zinc-400 transition-colors"
+          >
+            {link}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</footer>

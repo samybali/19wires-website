@@ -1,17 +1,45 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="19Wires — Création de sites & applications sur mesure"
+  description="Agence web experte en création de sites vitrine, e-commerce et applications sur mesure."
+>
+  <Header />
+  <main>
+    <Hero />
+    <Services />
+
+    <!-- Section CTA -->
+    <section class="py-24 relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-transparent to-sky-600/10"
+        ></div>
+      </div>
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-6">
+          Prêt à donner vie à
+          <br />
+          <span class="text-blue-400">votre projet ?</span>
+        </h2>
+        <p class="text-zinc-400 text-lg mb-10 max-w-xl mx-auto">
+          Discutons de vos objectifs. Premier échange gratuit et sans engagement
+          pour analyser votre besoin.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-0.5"
+        >
+          Contactez-nous
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

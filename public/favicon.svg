@@ -1,9 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="svg2" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <desc>Source: openclipart.org/detail/209545</desc>
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="256" y1="0" x2="256" y2="512" id="gradient-0" gradientTransform="matrix(1, 0, 0, 1, -0.000153, -0.000404)">
+      <stop offset="0" style="stop-color: rgb(0% 3.1373% 7.8431%)"/>
+      <stop offset="1" style="stop-color: rgb(0% 2.0185% 7.1283%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="100" ry="100" style="stroke: rgb(0, 0, 0); paint-order: fill; fill: url(&quot;#gradient-0&quot;); fill-rule: nonzero; stroke-width: 1;"/>
+  <g transform="matrix(1, 0, 0, 1, -203.933014, -54.806488)">
+    <rect x="316.353" y="215.229" width="65.233" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="312.61" y="243.498" width="67.653" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="281.833" y="271.679" width="99.786" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="315.124" y="299.611" width="66.449" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="313.781" y="327.726" width="66.449" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="313.308" y="355.647" width="66.449" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="256.154" y="384.792" width="181.695" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="511.613" y="299.847" width="152.099" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="513.835" y="383.628" width="120.296" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="481.16" y="357.266" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="594.229" y="355.516" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="593.495" y="328.015" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="594.906" y="272.686" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="593.926" y="242.907" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="481.832" y="243.081" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="481.61" y="270.667" width="68.028" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+    <rect x="511.763" y="214.4" width="124.773" height="22.421" rx="11" ry="11" style="stroke: rgb(0, 0, 0); fill: rgb(0, 53, 102); stroke-width: 1;"/>
+  </g>
 </svg>

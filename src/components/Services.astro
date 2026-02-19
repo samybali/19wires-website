@@ -1,0 +1,92 @@
+---
+const services = [
+  {
+    icon: "🎨",
+    title: "Design UI/UX",
+    description:
+      "Des interfaces soignées, intuitives et modernes qui engagent vos utilisateurs dès le premier regard.",
+    tags: ["Figma", "Prototypage", "Design System"],
+  },
+  {
+    icon: "⚡",
+    title: "Développement Web",
+    description:
+      "Sites et applications performants avec les dernières technologies : Astro, Next.js, TypeScript.",
+    tags: ["Astro", "React", "TypeScript"],
+  },
+  {
+    icon: "📱",
+    title: "Applications Mobile",
+    description:
+      "Apps iOS & Android natives ou hybrides, pensées pour l'expérience utilisateur et la performance.",
+    tags: ["React Native", "Expo", "Swift"],
+  },
+  {
+    icon: "🚀",
+    title: "SEO & Performance",
+    description:
+      "Optimisation technique pour dominer les moteurs de recherche et offrir une expérience ultra-rapide.",
+    tags: ["Core Web Vitals", "SEO On-page", "Lighthouse"],
+  },
+  {
+    icon: "🛒",
+    title: "E-commerce",
+    description:
+      "Boutiques en ligne pensées pour convertir, avec une gestion intuitive et des paiements sécurisés.",
+    tags: ["Shopify", "WooCommerce", "Stripe"],
+  },
+  {
+    icon: "🔧",
+    title: "Maintenance & Support",
+    description:
+      "Un accompagnement continu pour garder votre site à jour, sécurisé et toujours performant.",
+    tags: ["Monitoring", "Mises à jour", "Support 24/7"],
+  },
+];
+---
+
+<section id="services" class="py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header section -->
+    <div class="text-center mb-16">
+      <span
+        class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+      >
+        Nos Services
+      </span>
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-4">
+        Tout ce dont vous
+        <span class="text-zinc-500">avez besoin</span>
+      </h2>
+      <p class="max-w-xl mx-auto text-zinc-400 text-lg">
+        De la conception au déploiement, nous couvrons l'ensemble de votre
+        projet digital avec expertise.
+      </p>
+    </div>
+
+    <!-- Grid services -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        services.map((service) => (
+          <div class="group relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/5">
+            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div class="relative">
+              <span class="text-4xl mb-5 block">{service.icon}</span>
+              <h3 class="text-xl font-bold text-white mb-3">{service.title}</h3>
+              <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                {service.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {service.tags.map((tag) => (
+                  <span class="px-3 py-1 rounded-full bg-zinc-800 text-zinc-400 text-xs font-medium border border-zinc-700">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

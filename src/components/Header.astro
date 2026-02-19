@@ -1,0 +1,123 @@
+---
+const navLinks = [
+  { label: "Accueil", href: "/" },
+  { label: "Services", href: "#services" },
+  { label: "Réalisations", href: "#realisations" },
+  { label: "Contact", href: "/contact" },
+];
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <img src="/favicon.svg" alt="Logo" class="w-8 h-8 rounded-lg" />
+      <span class="font-bold text-xl tracking-tight text-white">
+        19<span class="text-blue-400">Wires</span>
+      </span>
+    </a>
+
+    <!-- Navigation desktop -->
+    <nav class="hidden md:flex items-center gap-8">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm text-zinc-400 hover:text-white transition-colors duration-200 font-medium"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- CTA -->
+    <a
+      href="/contact"
+      class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
+    >
+      Démarrer un projet
+    </a>
+
+    <!-- Burger mobile -->
+    <button
+      id="burger"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Menu"
+    >
+      <span class="w-6 h-0.5 bg-white transition-all duration-300" id="b1"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300" id="b2"></span>
+      <span class="w-6 h-0.5 bg-white transition-all duration-300" id="b3"></span>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden bg-zinc-900/95 backdrop-blur-md border-t border-zinc-800 px-6 py-4"
+  >
+    <nav class="flex flex-col gap-4">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-zinc-300 hover:text-white transition-colors font-medium py-1"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/contact"
+        class="mt-2 inline-flex justify-center px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"
+      >
+        Démarrer un projet
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("header");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      header?.classList.add(
+        "bg-zinc-950/80",
+        "backdrop-blur-md",
+        "border-b",
+        "border-zinc-800/50"
+      );
+    } else {
+      header?.classList.remove(
+        "bg-zinc-950/80",
+        "backdrop-blur-md",
+        "border-b",
+        "border-zinc-800/50"
+      );
+    }
+  });
+
+  const burger = document.getElementById("burger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const b1 = document.getElementById("b1");
+  const b2 = document.getElementById("b2");
+  const b3 = document.getElementById("b3");
+  let isOpen = false;
+
+  burger?.addEventListener("click", () => {
+    isOpen = !isOpen;
+    mobileMenu?.classList.toggle("hidden");
+    if (isOpen) {
+      b1?.classList.add("rotate-45", "translate-y-2");
+      b2?.classList.add("opacity-0");
+      b3?.classList.add("-rotate-45", "-translate-y-2");
+    } else {
+      b1?.classList.remove("rotate-45", "translate-y-2");
+      b2?.classList.remove("opacity-0");
+      b3?.classList.remove("-rotate-45", "-translate-y-2");
+    }
+  });
+</script>

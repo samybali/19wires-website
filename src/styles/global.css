@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ================================================
+   CUSTOM BASE STYLES
+   ================================================ */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar personnalisée */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #09090b; /* zinc-950 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3f3f46; /* zinc-700 */
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2563eb; /* blue-600 */
+  }
+
+  /* Focus visible accessible */
+  :focus-visible {
+    outline: 2px solid #2563eb; /* blue-600 */
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Sélection de texte */
+  ::selection {
+    background-color: #2563eb33; /* blue-600 à ~20% */
+    color: #eff6ff; /* blue-50 */
+  }
+
+  /* Reset liens */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Reset boutons */
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+  }
+
+  /* Images responsive par défaut */
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ================================================
+   CUSTOM UTILITIES
+   ================================================ */
+
+@layer utilities {
+  /* Gradient texte bleu */
+  .text-gradient {
+    background: linear-gradient(135deg, #60a5fa, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glassmorphism card */
+  .glass {
+    background: rgb(255 255 255 / 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgb(255 255 255 / 0.06);
+  }
+
+  /* Glow bleu */
+  .glow-blue {
+    box-shadow:
+      0 0 20px rgb(37 99 235 / 0.3),
+      0 0 60px rgb(37 99 235 / 0.1);
+  }
+
+  /* Animation fade-in-up */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+}
+
+/* ================================================
+   KEYFRAMES
+   ================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% center;
+  }
+  to {
+    background-position: 200% center;
+  }
+}

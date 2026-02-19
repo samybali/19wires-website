@@ -1,0 +1,197 @@
+---
+---
+
+<form id="contact-form" class="space-y-6" novalidate>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="flex flex-col gap-2">
+      <label for="name" class="text-sm font-medium text-zinc-300">
+        Nom complet <span class="text-blue-400">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Jean Dupont"
+        class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="email" class="text-sm font-medium text-zinc-300">
+        Email <span class="text-blue-400">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="jean@exemple.fr"
+        class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm"
+      />
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <label for="subject" class="text-sm font-medium text-zinc-300">
+      Sujet <span class="text-blue-400">*</span>
+    </label>
+    <select
+      id="subject"
+      name="subject"
+      required
+      class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm appearance-none cursor-pointer"
+    >
+      <option value="">Sélectionnez un sujet…</option>
+      <option value="site-vitrine">Création site vitrine</option>
+      <option value="e-commerce">Boutique e-commerce</option>
+      <option value="application">Application web / mobile</option>
+      <option value="refonte">Refonte de site existant</option>
+      <option value="seo">SEO & Performance</option>
+      <option value="autre">Autre</option>
+    </select>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <label for="message" class="text-sm font-medium text-zinc-300">
+      Message <span class="text-blue-400">*</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      rows="6"
+      placeholder="Décrivez votre projet, vos besoins, votre budget approximatif…"
+      class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm resize-none"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    id="submit-btn"
+    class="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-700 disabled:cursor-not-allowed text-white font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/20"
+  >
+    <span id="btn-label">Envoyer le message</span>
+    <svg
+      id="btn-icon"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+      ></path>
+    </svg>
+    <svg
+      id="btn-spinner"
+      class="hidden w-5 h-5 animate-spin"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      ></circle>
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+      ></path>
+    </svg>
+  </button>
+
+  <div
+    id="success-msg"
+    class="hidden flex items-center gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    </svg>
+    Message envoyé avec succès ! Nous vous répondrons sous 24h.
+  </div>
+
+  <div
+    id="error-msg"
+    class="hidden flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+    Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const btnLabel = document.getElementById("btn-label")!;
+  const btnIcon = document.getElementById("btn-icon")!;
+  const btnSpinner = document.getElementById("btn-spinner")!;
+  const successMsg = document.getElementById("success-msg")!;
+  const errorMsg = document.getElementById("error-msg")!;
+
+  const setLoading = (loading: boolean) => {
+    submitBtn.disabled = loading;
+    btnLabel.textContent = loading ? "Envoi en cours…" : "Envoyer le message";
+    btnIcon.classList.toggle("hidden", loading);
+    btnSpinner.classList.toggle("hidden", !loading);
+  };
+
+  const showFeedback = (type: "success" | "error") => {
+    successMsg.classList.toggle("hidden", type !== "success");
+    successMsg.classList.toggle("flex", type === "success");
+    errorMsg.classList.toggle("hidden", type !== "error");
+    errorMsg.classList.toggle("flex", type === "error");
+  };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    successMsg.classList.add("hidden");
+    successMsg.classList.remove("flex");
+    errorMsg.classList.add("hidden");
+    errorMsg.classList.remove("flex");
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const formData = new FormData(form);
+      const body = {
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        subject: formData.get("subject") as string,
+        message: formData.get("message") as string,
+      };
+
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) throw new Error("Erreur serveur");
+
+      showFeedback("success");
+      form.reset();
+    } catch {
+      showFeedback("error");
+    } finally {
+      setLoading(false);
+    }
+  });
+</script>

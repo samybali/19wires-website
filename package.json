@@ -5,10 +5,15 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "HOST=0.0.0.0 PORT=4321 node ./dist/server/entry.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.17.1"
+    "@astrojs/node": "^9.5.4",
+    "@tailwindcss/vite": "^4.2.0",
+    "astro": "^5.17.1",
+    "resend": "^6.9.2",
+    "tailwindcss": "^4.2.0"
   }
 }
