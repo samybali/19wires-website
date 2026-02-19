@@ -49,7 +49,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const { error } = await resend.emails.send({
-      from: "Contact <contact@19wires.fr>",
+      from: "19wires <contact@19wires.com>",
       to: [import.meta.env.CONTACT_EMAIL],
       replyTo: email,
       subject: `[19Wires] Nouveau message — ${subject}`,
