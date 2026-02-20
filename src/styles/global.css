@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
 @import "tailwindcss";
 
 /* ================================================
    CUSTOM BASE STYLES
    ================================================ */
+
+@theme {
+  --font-sixtyfour: "Sixtyfour", sans-serif;
+}
 
 @layer base {
   *,
