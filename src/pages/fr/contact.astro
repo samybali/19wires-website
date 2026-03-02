@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ContactForm from "../../components/ContactForm.astro";
+---
+
+<Layout
+  title="Contact — 19Wires"
+  description="Contactez notre agence d'ingénierie IA et Web pour discuter de votre projet sur mesure."
+>
+  <Header />
+
+  <main class="min-h-screen pt-32 pb-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span
+          class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+        >
+          Contact
+        </span>
+        <h1 class="text-4xl md:text-6xl font-black text-white mb-4">
+          Parlons de
+          <span class="text-blue-400">votre projet</span>
+        </h1>
+        <p class="text-zinc-400 text-lg max-w-xl mx-auto">
+          Remplissez le formulaire ci-dessous, nous vous recontacterons dans les plus brefs délais.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-12 max-w-3xl mx-auto">
+        <aside class="space-y-6">
+          {
+            [
+              {
+                title: "E-mail",
+                value: "contact@19wires.com",
+                href: "mailto:contact@19wires.com",
+              },
+            ].map((info) => (
+              <div class="flex flex-col items-center justify-center text-center gap-3 p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+                <div>
+                  <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-1.5">
+                    {info.title}
+                  </p>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      class="text-zinc-200 hover:text-blue-400 transition-colors font-medium text-base"
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <p class="text-zinc-200 font-medium text-base">{info.value}</p>
+                  )}
+                </div>
+              </div>
+            ))
+          }
+        </aside>
+
+        <div class="p-8 md:p-10 rounded-3xl bg-zinc-900 border border-zinc-800">
+          <h2 class="text-2xl font-bold text-white mb-8">
+            Envoyez-nous un message
+          </h2>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

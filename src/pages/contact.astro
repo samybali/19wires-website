@@ -20,89 +20,52 @@ import ContactForm from "../components/ContactForm.astro";
           Contact
         </span>
         <h1 class="text-4xl md:text-6xl font-black text-white mb-4">
-          Parlons de votre
-          <span class="text-blue-400">projet</span>
+          Let's talk about
+          <span class="text-blue-400">your project</span>
         </h1>
         <p class="text-zinc-400 text-lg max-w-xl mx-auto">
-          Remplissez le formulaire ci-dessous, nous vous recontactons sous 24h.
+          Fill out the form below, we will get back to you as soon as possible.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
-        <!-- Informations -->
-        <aside class="lg:col-span-2 space-y-6">
-          {
-            [
-              {
-                icon: "📧",
-                title: "Email",
-                value: "hello@19wires.fr",
-                href: "mailto:hello@19wires.fr",
-              },
-              {
-                icon: "📞",
-                title: "Téléphone",
-                value: "+33 1 23 45 67 89",
-                href: "tel:+33123456789",
-              },
-              {
-                icon: "📍",
-                title: "Adresse",
-                value: "12 rue de la Paix, Paris 75001",
-                href: null,
-              },
-              {
-                icon: "🕐",
-                title: "Horaires",
-                value: "Lun–Ven, 9h–18h",
-                href: null,
-              },
-            ].map((info) => (
-              <div class="flex items-start gap-4 p-5 rounded-2xl bg-zinc-900 border border-zinc-800">
-                <span class="text-2xl mt-0.5">{info.icon}</span>
-                <div>
-                  <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-1">
-                    {info.title}
-                  </p>
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      class="text-zinc-200 hover:text-blue-400 transition-colors font-medium text-sm"
-                    >
-                      {info.value}
-                    </a>
-                  ) : (
-                    <p class="text-zinc-200 font-medium text-sm">{info.value}</p>
-                  )}
-                </div>
-              </div>
-            ))
-          }
-
-          <div
-            class="p-6 rounded-2xl bg-gradient-to-br from-blue-600/20 to-sky-600/10 border border-blue-500/20"
+      <div class="grid grid-cols-1 gap-12 max-w-3xl mx-auto">
+  <aside class="space-y-6">
+    {
+      [
+        {
+          title: "Email",
+          value: "contact@19wires.com",
+          href: "mailto:contact@19wires.com",
+        },
+      ].map((info) => (
+    <div class="flex flex-col items-center justify-center text-center gap-3 p-6 rounded-2xl bg-zinc-900 border border-zinc-800">
+      <div>
+        <p class="text-xs text-zinc-500 font-semibold uppercase tracking-wider mb-1.5">
+          {info.title}
+        </p>
+        {info.href ? (
+          <a
+            href={info.href}
+            class="text-zinc-200 hover:text-blue-400 transition-colors font-medium text-base"
           >
-            <p class="text-blue-300 font-semibold mb-2">Notre engagement</p>
-            <p class="text-zinc-400 text-sm leading-relaxed">
-              Chaque projet mérite une attention personnalisée. Nous nous
-              engageons à vous répondre sous{" "}
-              <strong class="text-white">24 heures ouvrées</strong> avec une
-              première analyse de votre besoin.
-            </p>
-          </div>
-        </aside>
-
-        <!-- Formulaire -->
-        <div
-          class="lg:col-span-3 p-8 md:p-10 rounded-3xl bg-zinc-900 border border-zinc-800"
-        >
-          <h2 class="text-2xl font-bold text-white mb-8">
-            Envoyez-nous un message
-          </h2>
-          <ContactForm />
-        </div>
+            {info.value}
+          </a>
+        ) : (
+          <p class="text-zinc-200 font-medium text-base">{info.value}</p>
+        )}
       </div>
     </div>
+  ))
+}
+  </aside>
+
+  <div class="p-8 md:p-10 rounded-3xl bg-zinc-900 border border-zinc-800">
+    <h2 class="text-2xl font-bold text-white mb-8">
+      Send us a message
+    </h2>
+    <ContactForm />
+  </div>
+</div>
   </main>
 
   <Footer />

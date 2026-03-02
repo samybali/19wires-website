@@ -1,9 +1,23 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// 1. Logique d'ingénieur pour le sélecteur de langue (rester sur la même page)
+const pathname = Astro.url.pathname;
+// L'anglais est par défaut (à la racine)
+const frPath = lang === 'fr' ? pathname : `/fr${pathname === '/' ? '' : pathname}`;
+const enPath = lang === 'en' ? pathname : pathname.replace(/^\/fr/, '') || '/';
+
+// 2. Préfixe automatique pour tous les liens du site
+const basePath = lang === 'en' ? '/' : '/fr/';
+
+// 3. On génère la navigation dynamiquement avec les traductions et le bon préfixe
 const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "Réalisations", href: "#realisations" },
-  { label: "Contact", href: "/contact" },
+  { label: lang === 'en' ? "Home" : "Accueil", href: basePath },
+  { label: t('nav.services') || "Services", href: `${basePath}#services` },
+  { label: t('nav.contact') || "Contact", href: `${basePath}contact` },
 ];
 ---
 
@@ -12,14 +26,40 @@ const navLinks = [
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 group">
-      <span class="font-sixtyfour text-xl tracking-tight text-white">
-        <span class="text-[#003566]">19</span>WIRES
-      </span>
-    </a>
+    <div class="flex items-center gap-5">
+      <a href={basePath} class="flex items-center transition-opacity hover:opacity-80">
+        <span translate="no" class="notranslate font-sixtyfour text-xl tracking-tight text-white">
+          <span class="text-[#003566]">19</span>WIRES
+        </span>
+      </a>
 
-    <!-- Navigation desktop -->
+      <div class="w-px h-5 bg-zinc-800 hidden sm:block"></div>
+
+      <div class="flex items-center p-0.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-xs font-bold uppercase tracking-wide backdrop-blur-sm">
+        <a
+          href={enPath}
+          class={`px-2.5 py-1 rounded-full transition-colors ${
+            lang === 'en'
+              ? 'bg-blue-500/20 text-blue-400 shadow-sm'
+              : 'text-zinc-500 hover:text-zinc-200'
+          }`}
+        >
+          EN
+        </a>
+
+        <a
+          href={frPath}
+          class={`px-2.5 py-1 rounded-full transition-colors ${
+            lang === 'fr'
+              ? 'bg-blue-500/20 text-blue-400 shadow-sm'
+              : 'text-zinc-500 hover:text-zinc-200'
+          }`}
+        >
+          FR
+        </a>
+      </div>
+    </div>
+
     <nav class="hidden md:flex items-center gap-8">
       {
         navLinks.map((link) => (
@@ -33,15 +73,13 @@ const navLinks = [
       }
     </nav>
 
-    <!-- CTA -->
     <a
-      href="/contact"
+      href={`${basePath}contact`}
       class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25"
     >
-      Démarrer un projet
+      {t('nav.startProject')}
     </a>
 
-    <!-- Burger mobile -->
     <button
       id="burger"
       class="md:hidden flex flex-col gap-1.5 p-2"
@@ -53,7 +91,6 @@ const navLinks = [
     </button>
   </div>
 
-  <!-- Menu mobile -->
   <div
     id="mobile-menu"
     class="md:hidden hidden bg-zinc-900/95 backdrop-blur-md border-t border-zinc-800 px-6 py-4"
@@ -70,10 +107,10 @@ const navLinks = [
         ))
       }
       <a
-        href="/contact"
+        href={`${basePath}contact`}
         class="mt-2 inline-flex justify-center px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-colors"
       >
-        Démarrer un projet
+        {t('nav.startProject')}
       </a>
     </nav>
   </div>

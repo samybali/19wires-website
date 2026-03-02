@@ -1,0 +1,126 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const sections = [
+  {
+    number: "01",
+    title: "Éditeur du site",
+    content: `Le site web <strong class="text-white">19WIRES.com</strong> est édité par :<br><br>
+      <strong class="text-white">Raison sociale :</strong> 19WIRES (Ajouter le statut, ex: SAS, SARL)<br>
+      <strong class="text-white">Siège social :</strong> Paris, France<br>
+      <strong class="text-white">Numéro d'immatriculation (SIRET/RCS) :</strong> Numéro SIRET<br>
+      <strong class="text-white">Numéro de TVA :</strong> Numéro de TVA<br>
+      <strong class="text-white">Directeur de la publication :</strong> Prénom Nom`,
+  },
+  {
+    number: "02",
+    title: "Coordonnées",
+    content: `<strong class="text-white">E-mail :</strong> <a href="mailto:contact@19WIRES.com" class="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-4">contact@19WIRES.com</a>`,
+  },
+  {
+    number: "03",
+    title: "Hébergeur",
+    content: `Ce site web est hébergé par :<br><br>
+      <strong class="text-white">Société :</strong> Hetzner Online GmbH<br>
+      <strong class="text-white">Adresse :</strong> Industriestr. 25, 91710 Gunzenhausen, Allemagne<br>
+      <strong class="text-white">Site Web :</strong>
+      <a href="https://www.hetzner.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-4">www.hetzner.com</a>
+      <br><br>
+      <em class="text-zinc-500 text-sm">Note : L'infrastructure de l'application est gérée via Coolify.</em>`,
+  },
+  {
+    number: "04",
+    title: "Propriété Intellectuelle",
+    content: `L'ensemble du contenu de ce site (textes, images, graphismes, logos et logiciels) est la propriété exclusive de 19WIRES, sauf mention contraire. Toute reproduction, distribution, modification ou publication de ces éléments est strictement interdite sans accord écrit préalable.`,
+  },
+];
+---
+
+<Layout
+  title="Mentions Légales — 19WIRES"
+  description="Mentions légales et informations sur l'éditeur du site 19WIRES."
+>
+  <Header />
+
+  <main class="min-h-screen pt-32 pb-24">
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-700/10 blur-[120px]"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]"
+      ></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="mb-14">
+        <span
+          class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+        >
+          Légal
+        </span>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+          Mentions Légales
+        </h1>
+        <p class="text-zinc-500 text-sm">Dernière mise à jour : 21 février 2026</p>
+      </div>
+
+      <div class="space-y-4">
+        {
+          sections.map((section) => (
+            <div class="group relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/40 transition-all duration-300">
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              <div class="relative">
+                <div class="flex items-center gap-4 mb-5">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-600/15 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold">
+                    {section.number}
+                  </span>
+                  <h2 class="text-lg font-bold text-white">
+                    {section.title}
+                  </h2>
+                </div>
+
+                <div class="w-full h-px bg-zinc-800 mb-5" />
+
+                <p
+                  class="text-zinc-400 text-sm leading-relaxed"
+                  set:html={section.content}
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="/fr"
+          class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            ></path>
+          </svg>
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

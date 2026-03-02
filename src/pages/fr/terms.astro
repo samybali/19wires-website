@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const sections = [
+  {
+    number: "01",
+    title: "Acceptation des Conditions",
+    content: `En accédant et en utilisant le site web <strong class="text-white">19WIRES</strong>, vous acceptez d'être lié par ces Conditions Générales d'Utilisation. Si vous êtes en désaccord avec une quelconque partie de ces conditions, vous ne devez pas accéder au site.`,
+  },
+  {
+    number: "02",
+    title: "Droits de Propriété Intellectuelle",
+    content: `Sauf indication contraire, <strong class="text-white">19WIRES</strong> et/ou ses concédants de licence détiennent les droits de propriété intellectuelle pour tout le matériel présent sur ce site (y compris les textes, graphiques, logos et descriptions de services). Tous les droits de propriété intellectuelle sont réservés. Vous pouvez accéder à ces contenus pour votre usage personnel, sous réserve des restrictions définies dans ces conditions.`,
+  },
+  {
+    number: "03",
+    title: "Services et Contrats Clients",
+    content: `Les informations fournies sur ce site web le sont à titre informatif et général concernant nos services digitaux. Tout engagement commercial réel, prestation de service ou développement sur-mesure sera régi par un contrat écrit distinct et personnalisé ou un <strong class="text-white">Cahier des Charges</strong> signé par les deux parties.`,
+  },
+  {
+    number: "04",
+    title: "Limitation de Responsabilité",
+    badge: "Important",
+    content: `En aucun cas <strong class="text-white">19WIRES</strong>, ni aucun de ses dirigeants, directeurs ou employés, ne pourra être tenu responsable de quoi que ce soit découlant de ou lié de quelque manière que ce soit à votre utilisation de ce site web. Nous ne garantissons pas que le site sera constamment disponible, ni que les informations figurant sur ce site sont exhaustives, vraies, exactes ou non trompeuses.`,
+  },
+  {
+    number: "05",
+    title: "Droit Applicable",
+    content: `Ces Conditions seront régies et interprétées conformément aux lois de la <strong class="text-white">France</strong>. Tout litige relatif à ces conditions générales sera soumis à la juridiction exclusive des tribunaux français.`,
+  },
+];
+---
+
+<Layout
+  title="Conditions Générales — 19WIRES"
+  description="Conditions générales régissant l'utilisation du site web et des services de 19WIRES."
+>
+  <Header />
+
+  <main class="min-h-screen pt-32 pb-24">
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-700/10 blur-[120px]"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]"
+      ></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="mb-14">
+        <span
+          class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+        >
+          Légal
+        </span>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+          Conditions Générales
+        </h1>
+        <p class="text-zinc-500 text-sm">Dernière mise à jour : 21 février 2026</p>
+      </div>
+
+      <div class="space-y-4">
+        {
+          sections.map((section) => (
+            <div class="group relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/40 transition-all duration-300">
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              <div class="relative">
+                <div class="flex items-center gap-4 mb-5">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-600/15 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold">
+                    {section.number}
+                  </span>
+                  <h2 class="text-lg font-bold text-white">
+                    {section.title}
+                  </h2>
+                  {section.badge && (
+                    <span class="ml-auto flex-shrink-0 px-2.5 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-400 text-xs font-semibold">
+                      {section.badge}
+                    </span>
+                  )}
+                </div>
+
+                <div class="w-full h-px bg-zinc-800 mb-5" />
+
+                <p
+                  class="text-zinc-400 text-sm leading-relaxed"
+                  set:html={section.content}
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-6 p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50">
+        <p class="text-zinc-500 text-xs leading-relaxed text-center">
+          Pour toute question concernant ces Conditions Générales, veuillez nous contacter à l'adresse{" "}
+          <a
+            href="mailto:contact@19WIRES.com"
+            class="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-4"
+          >
+            contact@19WIRES.com
+          </a>
+        </p>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href="/fr"
+          class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            ></path>
+          </svg>
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

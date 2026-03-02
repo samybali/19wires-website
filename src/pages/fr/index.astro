@@ -1,21 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import Services from "../components/Services.astro";
-import Footer from "../components/Footer.astro";
+// Attention : on utilise ../../ car on est dans le dossier /fr/
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import Services from "../../components/Services.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
 <Layout
-  title="19Wires — Custom AI & Digital Engineering"
-  description="From concept to deployment, we engineer your custom AI pipeline end-to-end."
+  title="19Wires — Ingénierie IA & Digitale sur mesure"
+  description="De la conception au déploiement, nous construisons votre pipeline IA de bout en bout."
 >
   <Header />
   <main>
     <Hero />
     <Services />
 
-    <!-- Section CTA -->
     <section class="py-24 relative overflow-hidden">
       <div class="absolute inset-0 -z-10">
         <div
@@ -24,18 +24,18 @@ import Footer from "../components/Footer.astro";
       </div>
       <div class="max-w-4xl mx-auto px-6 text-center">
         <h2 class="text-4xl md:text-5xl font-black text-white mb-6">
-          Ready to
+          Prêt à
           <br />
-          <span class="text-blue-400">get started?</span>
+          <span class="text-blue-400">lancer votre projet ?</span>
         </h2>
         <p class="text-zinc-400 text-lg mb-10 max-w-xl mx-auto">
-          Tell us about your goals. We offer a free, zero-commitment technical review of your project.
+          Parlez-nous de vos objectifs. Nous vous offrons une analyse technique gratuite et sans engagement.
         </p>
         <a
-          href="/contact"
+          href="/fr/contact"
           class="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all duration-200 hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-0.5"
         >
-          Contact us
+          Nous contacter
         </a>
       </div>
     </section>

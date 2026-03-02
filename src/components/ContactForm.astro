@@ -1,32 +1,42 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<form id="contact-form" class="space-y-6" novalidate>
+<form 
+  id="contact-form" 
+  class="space-y-6" 
+  novalidate
+  data-text-submit={t('form.submit')}
+  data-text-submitting={t('form.submitting')}
+>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
     <div class="flex flex-col gap-2">
       <label for="name" class="text-sm font-medium text-zinc-300">
-        Nom complet <span class="text-blue-400">*</span>
+        {t('form.fullName')} <span class="text-blue-400">*</span>
       </label>
       <input
         type="text"
         id="name"
         name="name"
         required
-        placeholder="Jean Dupont"
+        placeholder={t('form.fullName')}
         class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm"
       />
     </div>
 
     <div class="flex flex-col gap-2">
       <label for="email" class="text-sm font-medium text-zinc-300">
-        Email <span class="text-blue-400">*</span>
+        {t('form.email')} <span class="text-blue-400">*</span>
       </label>
       <input
         type="email"
         id="email"
         name="email"
         required
-        placeholder="jean@exemple.fr"
+        placeholder="email@example.com"
         class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm"
       />
     </div>
@@ -34,34 +44,26 @@
 
   <div class="flex flex-col gap-2">
     <label for="subject" class="text-sm font-medium text-zinc-300">
-      Sujet <span class="text-blue-400">*</span>
+      {t('form.subject')} <span class="text-blue-400">*</span>
     </label>
-    <select
+    <input
+      type="text"
       id="subject"
       name="subject"
       required
-      class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm appearance-none cursor-pointer"
-    >
-      <option value="">Sélectionnez un sujet…</option>
-      <option value="site-vitrine">Création site vitrine</option>
-      <option value="e-commerce">Boutique e-commerce</option>
-      <option value="application">Application web / mobile</option>
-      <option value="refonte">Refonte de site existant</option>
-      <option value="seo">SEO & Performance</option>
-      <option value="autre">Autre</option>
-    </select>
+      class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm"
+    />
   </div>
 
   <div class="flex flex-col gap-2">
     <label for="message" class="text-sm font-medium text-zinc-300">
-      Message <span class="text-blue-400">*</span>
+      {t('form.message')} <span class="text-blue-400">*</span>
     </label>
     <textarea
       id="message"
       name="message"
       required
       rows="6"
-      placeholder="Décrivez votre projet, vos besoins, votre budget approximatif…"
       class="px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 transition-all duration-200 text-sm resize-none"
     ></textarea>
   </div>
@@ -71,11 +73,11 @@
     id="submit-btn"
     class="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-700 disabled:cursor-not-allowed text-white font-semibold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/20"
   >
-    <span id="btn-label">Envoyer le message</span>
+    <span id="btn-label">{t('form.submit')}</span>
     <svg
       id="btn-icon"
       xmlns="http://www.w3.org/2000/svg"
-      class="w-5 h-5"
+      class="w-5 h-5 rotate-90"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
@@ -112,22 +114,22 @@
 
   <div
     id="success-msg"
-    class="hidden flex items-center gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm"
+    class="hidden items-center gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
     </svg>
-    Message envoyé avec succès ! Nous vous répondrons sous 24h.
+    {t('form.success')}
   </div>
 
   <div
     id="error-msg"
-    class="hidden flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
+    class="hidden items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
     </svg>
-    Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
+    {t('form.error')}
   </div>
 </form>
 
@@ -140,9 +142,14 @@
   const successMsg = document.getElementById("success-msg")!;
   const errorMsg = document.getElementById("error-msg")!;
 
+  // On récupère les textes traduits depuis les attributs du formulaire
+  const textSubmit = form.getAttribute('data-text-submit') || 'Submit';
+  const textSubmitting = form.getAttribute('data-text-submitting') || 'Sending...';
+
   const setLoading = (loading: boolean) => {
     submitBtn.disabled = loading;
-    btnLabel.textContent = loading ? "Envoi en cours…" : "Envoyer le message";
+    // On utilise les variables traduites au lieu du texte en dur
+    btnLabel.textContent = loading ? textSubmitting : textSubmit;
     btnIcon.classList.toggle("hidden", loading);
     btnSpinner.classList.toggle("hidden", !loading);
   };

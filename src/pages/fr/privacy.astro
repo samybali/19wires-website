@@ -1,0 +1,149 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const sections = [
+  {
+    number: "01",
+    title: "Introduction",
+    content: `Chez <strong class="text-white">19WIRES</strong>, nous accordons une grande importance à la confidentialité de vos données. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos données personnelles lorsque vous visitez notre site web et utilisez notre formulaire de contact. Nous nous conformons au Règlement Général sur la Protection des Données (RGPD).`,
+  },
+  {
+    number: "02",
+    title: "Données collectées",
+    content: `Nous collectons uniquement les données personnelles que vous nous fournissez volontairement via notre formulaire de contact :`,
+    list: [
+      "Votre nom",
+      "Votre adresse e-mail",
+      "Toute information que vous choisissez d'inclure dans votre message",
+    ],
+  },
+  {
+    number: "03",
+    title: "Utilisation de vos données",
+    content: `Les données collectées sont strictement utilisées pour :`,
+    list: [
+      "Répondre à vos questions et demandes de projet.",
+      "Planifier des appels de découverte ou des consultations techniques.",
+      "Vous envoyer des propositions commerciales liées à nos services.",
+    ],
+    footer: `<strong class="text-white">Nous ne vendons, ne louons, ni ne partageons jamais vos données personnelles avec des tiers à des fins de marketing.</strong>`,
+  },
+  {
+    number: "04",
+    title: "Stockage et Sécurité",
+    content: `Vos données sont stockées en toute sécurité sur nos serveurs hébergés par <strong class="text-white">Hetzner Online GmbH</strong> en Europe. Nous mettons en œuvre des mesures techniques et organisationnelles strictes pour protéger vos données contre tout accès non autorisé, perte ou altération. Nous conservons les données liées aux demandes pour une durée maximale de <strong class="text-white">3 ans</strong> à compter de notre dernier contact.`,
+  },
+  {
+    number: "05",
+    title: "Vos droits",
+    content: `Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Vous pouvez également vous opposer ou limiter le traitement de vos données. Pour exercer ces droits, veuillez nous contacter à l'adresse suivante : <a href="mailto:contact@19WIRES.com" class="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-4">contact@19WIRES.com</a>.`,
+  },
+];
+---
+
+<Layout
+  title="Politique de Confidentialité — 19WIRES"
+  description="Politique de confidentialité et informations sur la protection des données personnelles pour 19WIRES."
+>
+  <Header />
+
+  <main class="min-h-screen pt-32 pb-24">
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-700/10 blur-[120px]"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]"
+      ></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="mb-14">
+        <span
+          class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+        >
+          Légal
+        </span>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+          Politique de Confidentialité
+        </h1>
+        <p class="text-zinc-500 text-sm">Dernière mise à jour : 21 février 2026</p>
+      </div>
+
+      <div class="space-y-4">
+        {
+          sections.map((section) => (
+            <div class="group relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/40 transition-all duration-300">
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              <div class="relative">
+                <div class="flex items-center gap-4 mb-5">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-600/15 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold">
+                    {section.number}
+                  </span>
+                  <h2 class="text-lg font-bold text-white">
+                    {section.title}
+                  </h2>
+                </div>
+
+                <div class="w-full h-px bg-zinc-800 mb-5" />
+
+                <p
+                  class="text-zinc-400 text-sm leading-relaxed"
+                  set:html={section.content}
+                />
+
+                {section.list && (
+                  <ul class="mt-4 space-y-2">
+                    {section.list.map((item) => (
+                      <li class="flex items-start gap-3 text-sm text-zinc-400">
+                        <span class="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.footer && (
+                  <p
+                    class="mt-5 text-sm text-zinc-400 leading-relaxed p-4 rounded-xl bg-blue-600/10 border border-blue-500/20"
+                    set:html={section.footer}
+                  />
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 text-center">
+        <a
+          href="/fr"
+          class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            ></path>
+          </svg>
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

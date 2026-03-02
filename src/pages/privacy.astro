@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const sections = [
+  {
+    number: "01",
+    title: "Introduction",
+    content: `At <strong class="text-white">19WIRES</strong>, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal data when you visit our website and use our contact form. We comply with the General Data Protection Regulation (GDPR).`,
+  },
+  {
+    number: "02",
+    title: "Data We Collect",
+    content: `We only collect the personal data you voluntarily provide to us via our contact form:`,
+    list: [
+      "Your name",
+      "Your email address",
+      "Any information you choose to include in your message",
+    ],
+  },
+  {
+    number: "03",
+    title: "How We Use Your Data",
+    content: `The data collected is strictly used to:`,
+    list: [
+      "Respond to your inquiries and project requests.",
+      "Schedule discovery calls or technical consultations.",
+      "Send you commercial proposals related to our services.",
+    ],
+    footer: `<strong class="text-white">We never sell, rent, or share your personal data with third parties for marketing purposes.</strong>`,
+  },
+  {
+    number: "04",
+    title: "Data Storage and Security",
+    content: `Your data is securely stored on our servers hosted by <strong class="text-white">Hetzner Online GmbH</strong> in Europe. We implement strict technical and organizational measures to protect your data against unauthorized access, loss, or alteration. We retain inquiry data for a maximum of <strong class="text-white">3 years</strong> from our last contact.`,
+  },
+  {
+    number: "05",
+    title: "Your Rights",
+    content: `Under the GDPR, you have the right to access, rectify, or erase your personal data. You may also object to or restrict the processing of your data. To exercise these rights, please contact us at: <a href="mailto:contact@19WIRES.com" class="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-4">contact@19WIRES.com</a>.`,
+  },
+];
+---
+
+<Layout
+  title="Privacy Policy — 19WIRES"
+  description="Privacy policy and personal data protection information for 19WIRES."
+>
+  <Header />
+
+  <main class="min-h-screen pt-32 pb-24">
+    <!-- Fond décoratif -->
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-700/10 blur-[120px]"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]"
+      ></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Page header -->
+      <div class="mb-14">
+        <span
+          class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+        >
+          Legal
+        </span>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+          Privacy Policy
+        </h1>
+        <p class="text-zinc-500 text-sm">Last updated: February 21, 2026</p>
+      </div>
+
+      <!-- Sections -->
+      <div class="space-y-4">
+        {
+          sections.map((section) => (
+            <div class="group relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/40 transition-all duration-300">
+              <!-- Glow subtil au hover -->
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              <div class="relative">
+                <!-- Numéro + titre -->
+                <div class="flex items-center gap-4 mb-5">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-600/15 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold">
+                    {section.number}
+                  </span>
+                  <h2 class="text-lg font-bold text-white">
+                    {section.title}
+                  </h2>
+                </div>
+
+                <!-- Séparateur -->
+                <div class="w-full h-px bg-zinc-800 mb-5" />
+
+                <!-- Contenu principal -->
+                <p
+                  class="text-zinc-400 text-sm leading-relaxed"
+                  set:html={section.content}
+                />
+
+                <!-- Liste optionnelle -->
+                {section.list && (
+                  <ul class="mt-4 space-y-2">
+                    {section.list.map((item) => (
+                      <li class="flex items-start gap-3 text-sm text-zinc-400">
+                        <span class="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <!-- Footer de section optionnel -->
+                {section.footer && (
+                  <p
+                    class="mt-5 text-sm text-zinc-400 leading-relaxed p-4 rounded-xl bg-blue-600/10 border border-blue-500/20"
+                    set:html={section.footer}
+                  />
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Back home -->
+      <div class="mt-12 text-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            ></path>
+          </svg>
+          Back to home
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,30 +1,43 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Préfixe dynamique pour les liens
+const basePath = lang === 'en' ? '/' : '/fr/';
 const year = new Date().getFullYear();
+
+// On construit le tableau des liens dynamiquement avec les traductions et le préfixe
+const legalLinks = [
+  { label: t('footer.legal') || "Legal Notice", href: `${basePath}legal` },
+  { label: t('footer.privacy') || "Privacy Policy", href: `${basePath}privacy` },
+  { label: t('footer.terms') || "Terms & Conditions", href: `${basePath}terms` }
+];
 ---
 
 <footer class="border-t border-zinc-800 py-12">
   <div
     class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4"
   >
-    <a href="/" class="flex items-center gap-2">
-      <img src="/favicon.svg" alt="Logo" class="w-7 h-7 rounded-lg" />
-      <span class="font-bold text-white">
-        19<span class="text-blue-400">Wires</span>
+    <a href={basePath} class="flex items-center gap-2">
+      <span translate="no" class="notranslate font-sixtyfour text-xl tracking-tight text-white">
+        <span class="text-[#003566]">19</span>WIRES
       </span>
     </a>
 
     <p class="text-zinc-600 text-sm text-center">
-      © {year} 19Wires. Tous droits réservés.
+      © {year} 19WIRES. {t('footer.rights')}
     </p>
 
     <div class="flex items-center gap-6">
       {
-        ["Mentions légales", "Confidentialité", "CGV"].map((link) => (
+        legalLinks.map((link) => (
           <a
-            href="#"
+            href={link.href}
             class="text-xs text-zinc-600 hover:text-zinc-400 transition-colors"
           >
-            {link}
+            {link.label}
           </a>
         ))
       }

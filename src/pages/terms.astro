@@ -1,0 +1,147 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const sections = [
+  {
+    number: "01",
+    title: "Agreement to Terms",
+    content: `By accessing and using the <strong class="text-white">19WIRES</strong> website, you agree to be bound by these Terms & Conditions. If you disagree with any part of these terms, you may not access the website.`,
+  },
+  {
+    number: "02",
+    title: "Intellectual Property Rights",
+    content: `Unless otherwise stated, <strong class="text-white">19WIRES</strong> and/or its licensors own the intellectual property rights for all material on this website (including text, graphics, logos, and service descriptions). All intellectual property rights are reserved. You may access this from 19WIRES for your own personal use subjected to restrictions set in these terms and conditions.`,
+  },
+  {
+    number: "03",
+    title: "Services and Client Contracts",
+    content: `The information provided on this website is for general informational purposes regarding our digital services. Any actual business engagement, service delivery, or custom development will be governed by a separate, customized written contract or <strong class="text-white">Statement of Work (SOW)</strong> signed by both parties.`,
+  },
+  {
+    number: "04",
+    title: "Limitation of Liability",
+    badge: "Important",
+    content: `In no event shall <strong class="text-white">19WIRES</strong>, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website. We do not warrant that the website will be constantly available, or available at all, nor do we guarantee that the information on this website is complete, true, accurate, or non-misleading.`,
+  },
+  {
+    number: "05",
+    title: "Governing Law",
+    content: `These Terms shall be governed and construed in accordance with the laws of <strong class="text-white">France</strong>. Any disputes relating to these terms and conditions will be subject to the exclusive jurisdiction of the courts of France.`,
+  },
+];
+---
+
+<Layout
+  title="Terms & Conditions — 19WIRES"
+  description="Terms and conditions governing the use of the 19WIRES website and services."
+>
+  <Header />
+
+  <main class="min-h-screen pt-32 pb-24">
+    <!-- Fond décoratif -->
+    <div class="fixed inset-0 -z-10 pointer-events-none">
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-700/10 blur-[120px]"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px]"
+      ></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Page header -->
+      <div class="mb-14">
+        <span
+          class="inline-block text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4"
+        >
+          Legal
+        </span>
+        <h1 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+          Terms & Conditions
+        </h1>
+        <p class="text-zinc-500 text-sm">Last updated: February 21, 2026</p>
+      </div>
+
+      <!-- Sections -->
+      <div class="space-y-4">
+        {
+          sections.map((section) => (
+            <div class="group relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-blue-500/40 transition-all duration-300">
+              <!-- Glow subtil au hover -->
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              <div class="relative">
+                <!-- Numéro + titre + badge optionnel -->
+                <div class="flex items-center gap-4 mb-5">
+                  <span class="flex-shrink-0 w-9 h-9 rounded-lg bg-blue-600/15 border border-blue-500/20 flex items-center justify-center text-blue-400 text-xs font-bold">
+                    {section.number}
+                  </span>
+                  <h2 class="text-lg font-bold text-white">
+                    {section.title}
+                  </h2>
+                  {section.badge && (
+                    <span class="ml-auto flex-shrink-0 px-2.5 py-1 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-400 text-xs font-semibold">
+                      {section.badge}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Séparateur -->
+                <div class="w-full h-px bg-zinc-800 mb-5" />
+
+                <!-- Contenu -->
+                <p
+                  class="text-zinc-400 text-sm leading-relaxed"
+                  set:html={section.content}
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Note de bas de page -->
+      <div class="mt-6 p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/50">
+        <p class="text-zinc-500 text-xs leading-relaxed text-center">
+          For any questions regarding these Terms & Conditions, please contact us at{" "}
+          <a
+            href="mailto:contact@19WIRES.com"
+            class="text-blue-400 hover:text-blue-300 transition-colors underline underline-offset-4"
+          >
+            contact@19WIRES.com
+          </a>
+        </p>
+      </div>
+
+      <!-- Back home -->
+      <div class="mt-10 text-center">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-white transition-colors duration-200 group"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 transition-transform group-hover:-translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 16l-4-4m0 0l4-4m-4 4h18"
+            ></path>
+          </svg>
+          Back to home
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
